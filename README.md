@@ -12,7 +12,7 @@ Conversations sends pre-action and post-action webhooks for most events that hap
 
 For our especific case, we need to use the [Post Action Webhook](https://www.twilio.com/docs/conversations/conversations-webhooks#post-action-webhooks), since we need the `MessageSid` which will only arrive in the post-webhook.
 
-So inside the Twilio Console, inside your Conversation Service under Webhooks, we'll need to add the Webhook Target (in our case the URL of our Twilio Function as a post-event URL) and the Webhook Filtering (in our case we'll use the Post-webhook `onMessageAdded` [Webhook Action Trigger](https://www.twilio.com/docs/conversations/conversations-webhooks#onmessageadded), which will fire when a new message is posted to the conversation).
+So in the Twilio Console, inside your Conversation Service under Webhooks, we'll need to add the Webhook Target (in our case the URL of our Twilio Function as a post-event URL) and the Webhook Filtering (in our case we'll use the Post-webhook `onMessageAdded` [Webhook Action Trigger](https://www.twilio.com/docs/conversations/conversations-webhooks#onmessageadded), which will fire when a new message is posted to the conversation).
 
 With this, our `remove-media.js` function will simply check if there is `Media`, and if so, "replaces" that media message with a new message "Message with attachment removed". To be more especific, it actually [deletes the message](https://www.twilio.com/docs/conversations/api/conversation-message-resource#delete-a-conversationmessage-resource) and right after [creates a message](https://www.twilio.com/docs/conversations/api/conversation-message-resource#create-a-conversationmessage-resource).
 
