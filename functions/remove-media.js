@@ -14,7 +14,7 @@ exports.handler = async function (context, event, callback) {
       .then(async () => {
         await client.conversations.v1
           .conversations(ConversationSid)
-          .messages.create({ body: 'Mensagem com anexo removida' })
+          .messages.create({ body: 'Message with attachment removed' })
           .then(message => console.log(message.sid))
       })
       .then(() => callback(null, response))
