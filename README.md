@@ -4,7 +4,7 @@
 
 [Conversations on Flex](https://www.twilio.com/docs/flex/conversations) allows customers/agents to send media attachments to each other while having a conversation (chat, WhatsApp and SMS). This code removes this capability so messages will only be text-based.
 
-You might be only using [Conversations API](https://www.twilio.com/docs/conversations) without Flex and still want to remove media attachments. This code works for this use case as well.
+This also works if you are using the [Conversations API](https://www.twilio.com/docs/conversations) without Flex.
 
 ## Brief Explanation on How This is Done
 
