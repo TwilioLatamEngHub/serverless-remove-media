@@ -1,5 +1,9 @@
 <h1 align="center">Remove Media Attachments on Conversations</h1>
 
+## Disclaimer
+
+**This software is to be considered "sample code", a Type B Deliverable, and is delivered "as-is" to the user. Twilio bears no responsibility to support the use or implementation of this software.**
+
 ## Use Case
 
 [Conversations on Flex](https://www.twilio.com/docs/flex/conversations) allows customers/agents to send media attachments to each other while having a conversation (chat, WhatsApp and SMS). This code removes this capability so messages will only be text-based.
