@@ -6,6 +6,8 @@
 
 This also works if you are using the [Conversations API](https://www.twilio.com/docs/conversations) without Flex.
 
+![](remove-media.gif)
+
 ## Brief Explanation on How This is Done
 
 Conversations sends pre-action and post-action webhooks for most events that happen in your application. These webhooks allow you to monitor and intercept user actions in your own backend service, in a Function (which is our case here), or in a Studio flow. [Read more about Conversations Webhooks here](https://www.twilio.com/docs/conversations/conversations-webhooks).
