@@ -4,9 +4,9 @@ const response = require(path).response()
 exports.handler = async function (context, event, callback) {
   const client = context.getTwilioClient()
 
-  const { Media, ConversationSid, MessageSid } = event
+  const { Media, ConversationSid, MessageSid, Author } = event
 
-  if (Media) {
+  if (Media && Author.includes('whatsapp:')) {
     await client.conversations.v1
       .conversations(ConversationSid)
       .messages(MessageSid)
@@ -14,7 +14,7 @@ exports.handler = async function (context, event, callback) {
       .then(async () => {
         await client.conversations.v1
           .conversations(ConversationSid)
-          .messages.create({ body: 'Message with attachment removed' })
+          .messages.create({ body: 'Mensagem com anexo removida' })
           .then(message => console.log(message.sid))
       })
       .then(() => callback(null, response))
