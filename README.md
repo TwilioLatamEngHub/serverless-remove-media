@@ -6,7 +6,7 @@
 
 ## Use Case
 
-[Conversations on Flex](https://www.twilio.com/docs/flex/conversations) allows customers/agents to send media attachments to each other while having a conversation (chat, WhatsApp and SMS). This code removes this capability so messages will only be text-based.
+[Conversations on Flex](https://www.twilio.com/docs/flex/conversations) allows customers/agents to send media attachments to each other while having a conversation. This code removes the capability for agents to receive attachments from WhatsApp users, only to send attachments.
 
 This also works if you are using the [Conversations API](https://www.twilio.com/docs/conversations) without Flex.
 
@@ -20,7 +20,7 @@ For our especific case, we need to use the [Post Action Webhook](https://www.twi
 
 So in the Twilio Console, inside your Conversation Service under Webhooks, we'll need to add the Webhook Target (in our case the URL of our Twilio Function as a post-event URL) and the Webhook Filtering (in our case we'll use the Post-webhook `onMessageAdded` [Webhook Action Trigger](https://www.twilio.com/docs/conversations/conversations-webhooks#onmessageadded), which will fire when a new message is posted to the conversation).
 
-With this, our `remove-media.js` function will simply check if there is `Media`, and if so, "replaces" that media message with a new message "Message with attachment removed". To be more especific, it actually [deletes the message](https://www.twilio.com/docs/conversations/api/conversation-message-resource#delete-a-conversationmessage-resource) and right after [creates a message](https://www.twilio.com/docs/conversations/api/conversation-message-resource#create-a-conversationmessage-resource).
+With this, our `remove-media.js` function will simply check if there is `Media` and if it comes from WhatsApp (meaning it's not from the agent), and if so, "replaces" that media message with a new message "Message with attachment removed". To be more especific, it actually [deletes the message](https://www.twilio.com/docs/conversations/api/conversation-message-resource#delete-a-conversationmessage-resource) and right after [creates a message](https://www.twilio.com/docs/conversations/api/conversation-message-resource#create-a-conversationmessage-resource).
 
 ## Twilio Serverless Functions
 
